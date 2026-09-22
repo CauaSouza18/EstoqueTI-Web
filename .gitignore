@@ -1,0 +1,23 @@
+# Maven
+target/
+*.class
+
+# Banco H2 local (dados gerados em runtime - nao versionar)
+data/
+*.mv.db
+*.trace.db
+
+# IDEs
+.idea/
+*.iml
+.vscode/
+nbproject/private/
+nb-configuration.xml
+.nb-gradle/
+
+# Sistema operacional
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
