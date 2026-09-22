@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrar · EstoqueTI</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/login.css">
+</head>
+<body class="login-body">
+
+  <section class="login-visual">
+    <div class="login-visual__brand">
+      <div class="sidebar__mark">TI</div>
+      <div class="sidebar__brand-text">
+        <strong>EstoqueTI</strong>
+        <span>CONTROLE DE ALMOXARIFADO</span>
+      </div>
+    </div>
+
+    <div class="login-visual__headline">
+      <span class="eyebrow">/// painel de estoque</span>
+      <h1>Cada item de TI, rastreado do recebimento à baixa.</h1>
+      <p>Produtos, fornecedores, notas fiscais e movimentações de entrada e saída em um único painel operacional.</p>
+      <div class="login-visual__tags">
+        <span class="tag tag--ativo">estoque em dia</span>
+        <span class="tag tag--baixo">estoque baixo</span>
+        <span class="tag tag--entrada">entrada</span>
+        <span class="tag tag--saida">saída</span>
+      </div>
+    </div>
+
+    <div class="login-visual__footer">ESTOQUETI · PROJETO INTEGRADOR · ETAPA 09 · Spring Boot + JPA</div>
+  </section>
+
+  <section class="login-form-side">
+    <div class="login-card">
+      <span class="eyebrow login-card__eyebrow">/// acesso ao sistema</span>
+      <h2>Entrar na sua conta</h2>
+      <p class="sub">Informe suas credenciais de acesso ao almoxarifado.</p>
+
+      <div id="erro-geral" class="field__error" style="display:none; background: var(--rose-saida-bg); border: 1px solid var(--rose-saida); padding: 10px 12px; border-radius: var(--radius-sm); margin-bottom: var(--sp-4);"></div>
+
+      <form id="form-login" novalidate>
+        <div class="field">
+          <label for="login">Usuário <span class="req">*</span></label>
+          <input type="text" id="login" name="login" placeholder="seu.usuario" autocomplete="username">
+          <div class="field__error"></div>
+        </div>
+
+        <div class="field field__toggle-pass">
+          <label for="senha">Senha <span class="req">*</span></label>
+          <input type="password" id="senha" name="senha" placeholder="••••••••" autocomplete="current-password">
+          <button type="button" id="toggle-pass">mostrar</button>
+          <div class="field__error"></div>
+        </div>
+
+        <button type="submit" class="btn btn--primary btn--block" id="btn-entrar">Entrar</button>
+      </form>
+
+      <div class="login-card__demo">
+        <strong>Contas de demonstração</strong> (clique para preencher):<br>
+        <button type="button" class="btn btn--ghost btn--sm" data-demo-login="cana.souza" data-demo-senha="123456" style="padding:2px 4px;">Administrador — cana.souza</button><br>
+        <button type="button" class="btn btn--ghost btn--sm" data-demo-login="bruna.lima" data-demo-senha="123456" style="padding:2px 4px;">Operador — bruna.lima</button><br>
+        <button type="button" class="btn btn--ghost btn--sm" data-demo-login="marcos.alves" data-demo-senha="123456" style="padding:2px 4px;">Consulta — marcos.alves</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/api.js"></script>
+  <script src="js/utils.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/login.js"></script>
+</body>
+</html>

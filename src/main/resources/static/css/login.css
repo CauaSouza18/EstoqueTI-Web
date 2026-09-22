@@ -1,0 +1,53 @@
+body.login-body { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; }
+
+.login-visual {
+  background: var(--graphite-900);
+  border-right: var(--border-hairline);
+  position: relative;
+  display: flex; flex-direction: column; justify-content: space-between;
+  padding: var(--sp-7);
+  overflow: hidden;
+}
+
+.login-visual::before {
+  content: "";
+  position: absolute; inset: 0;
+  background-image:
+    linear-gradient(var(--graphite-850) 1px, transparent 1px),
+    linear-gradient(90deg, var(--graphite-850) 1px, transparent 1px);
+  background-size: 34px 34px;
+  opacity: .5;
+  mask-image: radial-gradient(circle at 30% 30%, black, transparent 70%);
+}
+
+.login-visual__brand { display: flex; align-items: center; gap: var(--sp-3); position: relative; }
+.login-visual__headline { position: relative; max-width: 420px; }
+.login-visual__headline .eyebrow { display: block; margin-bottom: var(--sp-3); }
+.login-visual__headline h1 { font-size: var(--fs-xxl); line-height: 1.1; margin-bottom: var(--sp-4); }
+.login-visual__headline p { color: var(--steel-300); font-size: var(--fs-base); }
+.login-visual__tags { display: flex; gap: var(--sp-2); flex-wrap: wrap; position: relative; margin-top: var(--sp-5); }
+.login-visual__footer { position: relative; font-family: var(--font-mono); font-size: var(--fs-xs); color: var(--steel-400); }
+
+.login-form-side { display: flex; align-items: center; justify-content: center; padding: var(--sp-6); }
+.login-card { width: 100%; max-width: 380px; }
+.login-card__eyebrow { margin-bottom: var(--sp-2); }
+.login-card h2 { font-size: var(--fs-xl); margin-bottom: var(--sp-1); }
+.login-card p.sub { color: var(--steel-400); font-size: var(--fs-sm); margin-bottom: var(--sp-6); }
+
+.login-card__demo {
+  margin-top: var(--sp-5); padding: var(--sp-3) var(--sp-4);
+  background: var(--graphite-900); border: var(--border-hairline); border-radius: var(--radius-sm);
+  font-size: var(--fs-xs); color: var(--steel-400); line-height: 1.6;
+}
+.login-card__demo strong { color: var(--paper-50); }
+
+.field__toggle-pass { position: relative; }
+.field__toggle-pass button {
+  position: absolute; right: 8px; top: 8px; background: none; border: none; color: var(--steel-400);
+  cursor: pointer; font-family: var(--font-mono); font-size: var(--fs-xs);
+}
+
+@media (max-width: 860px) {
+  body.login-body { grid-template-columns: 1fr; }
+  .login-visual { display: none; }
+}

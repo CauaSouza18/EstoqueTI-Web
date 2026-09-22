@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Movimentações · EstoqueTI</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__mark">TI</div>
+      <div class="sidebar__brand-text"><strong>EstoqueTI</strong><span>ALMOXARIFADO</span></div>
+    </div>
+    <nav class="sidebar__nav">
+      <span class="sidebar__section-label">Visão geral</span>
+      <a href="dashboard.html" class="navlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Painel</a>
+      <span class="sidebar__section-label">Estoque</span>
+      <a href="produtos.html" class="navlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>Produtos</a>
+      <a href="categorias.html" class="navlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12l-8 8-9-9V3h8l9 9z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg>Categorias</a>
+      <a href="movimentacoes.html" class="navlink is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 3l4 4-4 4"/><path d="M21 7H9"/><path d="M7 21l-4-4 4-4"/><path d="M3 17h12"/></svg>Movimentações</a>
+      <span class="sidebar__section-label">Cadastros</span>
+      <a href="fornecedores.html" class="navlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="7" width="14" height="9"/><path d="M15 10h4l3 3v3h-7z"/><circle cx="6" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>Fornecedores</a>
+      <a href="notas-fiscais.html" class="navlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>Notas Fiscais</a>
+      <a href="usuarios.html" class="navlink" data-admin-only><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c1-3.5 3.6-5.5 6.5-5.5S15 16.5 16 20"/><circle cx="18" cy="8" r="2.4"/><path d="M16.5 14.6c2.3.4 4 2.2 4.7 5.4"/></svg>Usuários</a>
+    </nav>
+    <div class="sidebar__footer">
+      <div class="sidebar__user">
+        <div class="sidebar__avatar" data-user-avatar>--</div>
+        <div class="sidebar__user-info"><strong data-user-name>—</strong><span data-user-level>—</span></div>
+      </div>
+      <button class="sidebar__logout" data-action="logout">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        Sair
+      </button>
+    </div>
+  </aside>
+
+  <div>
+    <header class="topbar">
+      <div class="topbar__crumb">EstoqueTI / <strong>Movimentações</strong></div>
+      <div class="topbar__right"><span class="topbar__clock mono" data-clock>—</span></div>
+    </header>
+
+    <main class="content">
+      <div class="page-header">
+        <div><span class="eyebrow">/// entradas e saídas</span><h1>Movimentações de estoque</h1></div>
+      </div>
+
+      <div class="grid-2col">
+        <section class="panel">
+          <div class="toolbar">
+            <div class="toolbar__search">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg>
+              <input type="text" id="busca" placeholder="Buscar por produto...">
+            </div>
+            <select id="filtro-tipo">
+              <option value="">Entradas e saídas</option>
+              <option value="Entrada">Somente entradas</option>
+              <option value="Saida">Somente saídas</option>
+            </select>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead><tr><th>Data</th><th>Produto</th><th>Tipo</th><th class="num">Qtd.</th><th>Observação</th></tr></thead>
+              <tbody id="tbody-movimentacoes"></tbody>
+            </table>
+          </div>
+          <div id="estado-vazio"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel__header"><h2>Lançar movimentação</h2></div>
+          <form id="form-movimentacao" class="panel__body" novalidate>
+            <div class="field">
+              <label for="idProduto">Produto <span class="req">*</span></label>
+              <select id="idProduto" name="idProduto"><option value="">Selecione...</option></select>
+              <div class="field__error"></div>
+              <div class="field__hint" id="hint-estoque-atual">—</div>
+            </div>
+            <div class="field">
+              <label>Tipo de movimentação <span class="req">*</span></label>
+              <div style="display:flex; gap: var(--sp-3);">
+                <label style="display:flex; align-items:center; gap:6px; font-size: var(--fs-sm); text-transform:none; color: var(--paper-50); font-family: var(--font-body);">
+                  <input type="radio" name="tipoMovimentacao" value="Entrada" checked style="width:auto;"> Entrada
+                </label>
+                <label style="display:flex; align-items:center; gap:6px; font-size: var(--fs-sm); text-transform:none; color: var(--paper-50); font-family: var(--font-body);">
+                  <input type="radio" name="tipoMovimentacao" value="Saida" style="width:auto;"> Saída
+                </label>
+              </div>
+            </div>
+            <div class="field">
+              <label for="quantidade">Quantidade <span class="req">*</span></label>
+              <input type="number" id="quantidade" name="quantidade" min="1" step="1" placeholder="0">
+              <div class="field__error"></div>
+            </div>
+            <div class="field">
+              <label for="observacao">Observação</label>
+              <textarea id="observacao" name="observacao" placeholder="Ex: Recebimento NF 000123"></textarea>
+            </div>
+            <button type="submit" class="btn btn--primary btn--block">Confirmar lançamento</button>
+          </form>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/movimentacoes.js"></script>
+</body>
+</html>

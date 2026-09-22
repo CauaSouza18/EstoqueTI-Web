@@ -1,0 +1,60 @@
+/* =========================================================
+   EstoqueTI — Design Tokens
+   Conceito: painel de controle de almoxarifado/TI. Paleta
+   grafite escura com etiquetas de prateleira (shelf-tags)
+   como assinatura visual dos status/categorias.
+   ========================================================= */
+:root {
+  --graphite-950: #12161b;
+  --graphite-900: #1b2129;
+  --graphite-850: #202832;
+  --graphite-800: #262e38;
+  --graphite-700: #333d49;
+  --graphite-600: #46515f;
+
+  --steel-400: #8a93a1;
+  --steel-300: #a7afbb;
+  --paper-50: #edeff2;
+  --paper-00: #ffffff;
+
+  --signal-amber: #f2a93b;
+  --signal-amber-dim: #a87526;
+  --signal-amber-bg: rgba(242, 169, 59, 0.12);
+
+  --teal-entrada: #2dd4bf;
+  --teal-entrada-bg: rgba(45, 212, 191, 0.12);
+  --rose-saida: #fb7185;
+  --rose-saida-bg: rgba(251, 113, 133, 0.12);
+  --blue-info: #5b8def;
+  --blue-info-bg: rgba(91, 141, 239, 0.12);
+
+  --font-display: 'Space Grotesk', 'Segoe UI', sans-serif;
+  --font-body: 'Inter', 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Consolas', monospace;
+
+  --fs-xs: 0.75rem;
+  --fs-sm: 0.8125rem;
+  --fs-base: 0.9375rem;
+  --fs-md: 1.0625rem;
+  --fs-lg: 1.375rem;
+  --fs-xl: 1.875rem;
+  --fs-xxl: 2.5rem;
+
+  --sp-1: 4px;
+  --sp-2: 8px;
+  --sp-3: 12px;
+  --sp-4: 16px;
+  --sp-5: 24px;
+  --sp-6: 32px;
+  --sp-7: 48px;
+
+  --radius-sm: 3px;
+  --radius-md: 5px;
+  --border-hairline: 1px solid var(--graphite-700);
+
+  --shadow-panel: 0 8px 24px rgba(0, 0, 0, 0.35);
+  --shadow-focus: 0 0 0 3px rgba(242, 169, 59, 0.35);
+
+  --sidebar-w: 232px;
+  --topbar-h: 60px;
+}

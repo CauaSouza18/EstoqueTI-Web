@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produtos / Novo produto · EstoqueTI</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__mark">TI</div>
+      <div class="sidebar__brand-text"><strong>EstoqueTI</strong><span>ALMOXARIFADO</span></div>
+    </div>
+    <nav class="sidebar__nav">
+      <span class="sidebar__section-label">Visão geral</span>
+      <a href="dashboard.html" class="navlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Painel</a>
+      <span class="sidebar__section-label">Estoque</span>
+      <a href="produtos.html" class="navlink is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>Produtos</a>
+      <a href="categorias.html" class="navlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12l-8 8-9-9V3h8l9 9z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg>Categorias</a>
+      <a href="movimentacoes.html" class="navlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 3l4 4-4 4"/><path d="M21 7H9"/><path d="M7 21l-4-4 4-4"/><path d="M3 17h12"/></svg>Movimentações</a>
+      <span class="sidebar__section-label">Cadastros</span>
+      <a href="fornecedores.html" class="navlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="7" width="14" height="9"/><path d="M15 10h4l3 3v3h-7z"/><circle cx="6" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>Fornecedores</a>
+      <a href="notas-fiscais.html" class="navlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>Notas Fiscais</a>
+      <a href="usuarios.html" class="navlink" data-admin-only><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c1-3.5 3.6-5.5 6.5-5.5S15 16.5 16 20"/><circle cx="18" cy="8" r="2.4"/><path d="M16.5 14.6c2.3.4 4 2.2 4.7 5.4"/></svg>Usuários</a>
+    </nav>
+    <div class="sidebar__footer">
+      <div class="sidebar__user">
+        <div class="sidebar__avatar" data-user-avatar>--</div>
+        <div class="sidebar__user-info"><strong data-user-name>—</strong><span data-user-level>—</span></div>
+      </div>
+      <button class="sidebar__logout" data-action="logout">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        Sair
+      </button>
+    </div>
+  </aside>
+
+  <div>
+    <header class="topbar">
+      <div class="topbar__crumb">EstoqueTI / Produtos / <strong id="crumb-titulo">Novo produto</strong></div>
+      <div class="topbar__right"><span class="topbar__clock mono" data-clock>—</span></div>
+    </header>
+
+    <main class="content" style="max-width: 760px;">
+      <div class="page-header">
+        <div><span class="eyebrow">/// cadastro</span><h1 id="titulo-pagina">Novo produto</h1></div>
+      </div>
+
+      <form id="form-produto" class="panel" novalidate>
+        <div class="panel__body">
+          <fieldset>
+            <legend>Identificação</legend>
+            <div class="field">
+              <label for="nomeProduto">Nome do produto <span class="req">*</span></label>
+              <input type="text" id="nomeProduto" name="nomeProduto" placeholder="Ex: Notebook Dell Vostro 15">
+              <div class="field__error"></div>
+            </div>
+            <div class="field">
+              <label for="descricao">Descrição</label>
+              <textarea id="descricao" name="descricao" placeholder="Especificações técnicas resumidas"></textarea>
+            </div>
+            <div class="field-row field-row--3">
+              <div class="field">
+                <label for="marca">Marca <span class="req">*</span></label>
+                <input type="text" id="marca" name="marca" placeholder="Ex: Dell">
+                <div class="field__error"></div>
+              </div>
+              <div class="field">
+                <label for="idCategoria">Categoria <span class="req">*</span></label>
+                <select id="idCategoria" name="idCategoria"><option value="">Selecione...</option></select>
+                <div class="field__error"></div>
+              </div>
+              <div class="field">
+                <label for="unidadeMedida">Unidade <span class="req">*</span></label>
+                <select id="unidadeMedida" name="unidadeMedida">
+                  <option value="UN">UN — Unidade</option>
+                  <option value="CX">CX — Caixa</option>
+                  <option value="PC">PC — Pacote</option>
+                  <option value="MT">MT — Metro</option>
+                  <option value="KG">KG — Quilograma</option>
+                </select>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Preço e estoque</legend>
+            <div class="field-row field-row--3">
+              <div class="field">
+                <label for="precoCusto">Preço de custo (R$) <span class="req">*</span></label>
+                <input type="number" id="precoCusto" name="precoCusto" step="0.01" min="0" placeholder="0,00">
+                <div class="field__error"></div>
+              </div>
+              <div class="field">
+                <label for="precoVenda">Preço de venda (R$) <span class="req">*</span></label>
+                <input type="number" id="precoVenda" name="precoVenda" step="0.01" min="0" placeholder="0,00">
+                <div class="field__error"></div>
+              </div>
+              <div class="field">
+                <label for="quantidade">Quantidade em estoque <span class="req">*</span></label>
+                <input type="number" id="quantidade" name="quantidade" step="1" min="0" placeholder="0">
+                <div class="field__error"></div>
+              </div>
+            </div>
+            <div class="field__hint" id="hint-margem">Margem de lucro estimada: —</div>
+            <div class="field" style="margin-top: var(--sp-4);">
+              <label for="status">Status <span class="req">*</span></label>
+              <select id="status" name="status">
+                <option value="Ativo">Ativo</option>
+                <option value="Inativo">Inativo</option>
+              </select>
+            </div>
+          </fieldset>
+        </div>
+        <div class="modal__footer" style="border-top: var(--border-hairline); justify-content: flex-end;">
+          <a href="produtos.html" class="btn btn--ghost">Cancelar</a>
+          <button type="submit" class="btn btn--primary">Salvar produto</button>
+        </div>
+      </form>
+    </main>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/produto-form.js"></script>
+</body>
+</html>

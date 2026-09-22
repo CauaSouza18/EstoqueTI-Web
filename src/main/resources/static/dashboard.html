@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel · EstoqueTI</title>
+<link rel="stylesheet" href="css/variables.css">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/components.css">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+<div class="app">
+  <aside class="sidebar">
+    <div class="sidebar__brand">
+      <div class="sidebar__mark">TI</div>
+      <div class="sidebar__brand-text"><strong>EstoqueTI</strong><span>ALMOXARIFADO</span></div>
+    </div>
+    <nav class="sidebar__nav">
+      <span class="sidebar__section-label">Visão geral</span>
+      <a href="dashboard.html" class="navlink is-active"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="3" y="3" width="7" height="9" rx="1"/><rect x="14" y="3" width="7" height="5" rx="1"/><rect x="14" y="12" width="7" height="9" rx="1"/><rect x="3" y="16" width="7" height="5" rx="1"/></svg>Painel</a>
+      <span class="sidebar__section-label">Estoque</span>
+      <a href="produtos.html" class="navlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M21 8l-9-5-9 5 9 5 9-5z"/><path d="M3 8v8l9 5 9-5V8"/><path d="M12 13v8"/></svg>Produtos</a>
+      <a href="categorias.html" class="navlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 12l-8 8-9-9V3h8l9 9z"/><circle cx="7.5" cy="7.5" r="1.2"/></svg>Categorias</a>
+      <a href="movimentacoes.html" class="navlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M17 3l4 4-4 4"/><path d="M21 7H9"/><path d="M7 21l-4-4 4-4"/><path d="M3 17h12"/></svg>Movimentações</a>
+      <span class="sidebar__section-label">Cadastros</span>
+      <a href="fornecedores.html" class="navlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="1" y="7" width="14" height="9"/><path d="M15 10h4l3 3v3h-7z"/><circle cx="6" cy="18" r="1.6"/><circle cx="17.5" cy="18" r="1.6"/></svg>Fornecedores</a>
+      <a href="notas-fiscais.html" class="navlink"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2h9l3 3v17H6z"/><path d="M9 8h6M9 12h6M9 16h4"/></svg>Notas Fiscais</a>
+      <a href="usuarios.html" class="navlink" data-admin-only><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="9" cy="8" r="3.2"/><path d="M2.5 20c1-3.5 3.6-5.5 6.5-5.5S15 16.5 16 20"/><circle cx="18" cy="8" r="2.4"/><path d="M16.5 14.6c2.3.4 4 2.2 4.7 5.4"/></svg>Usuários</a>
+    </nav>
+    <div class="sidebar__footer">
+      <div class="sidebar__user">
+        <div class="sidebar__avatar" data-user-avatar>--</div>
+        <div class="sidebar__user-info"><strong data-user-name>—</strong><span data-user-level>—</span></div>
+      </div>
+      <button class="sidebar__logout" data-action="logout">
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 21H5a2 2 0 01-2-2V5a2 2 0 012-2h4"/><path d="M16 17l5-5-5-5"/><path d="M21 12H9"/></svg>
+        Sair
+      </button>
+    </div>
+  </aside>
+
+  <div>
+    <header class="topbar">
+      <div class="topbar__crumb">EstoqueTI / <strong>Painel</strong></div>
+      <div class="topbar__right"><span class="topbar__clock mono" data-clock>—</span></div>
+    </header>
+
+    <main class="content">
+      <div class="page-header">
+        <div>
+          <span class="eyebrow">/// visão geral</span>
+          <h1>Bem-vindo(a) de volta</h1>
+        </div>
+        <div class="page-header__actions">
+          <a href="movimentacoes.html" class="btn btn--primary">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14M5 12h14"/></svg>
+            Nova movimentação
+          </a>
+        </div>
+      </div>
+
+      <div class="grid-cards" id="cards-resumo"></div>
+
+      <div class="grid-2col">
+        <section class="panel">
+          <div class="panel__header">
+            <h2>Movimentações recentes</h2>
+            <a href="movimentacoes.html" class="btn btn--ghost btn--sm">Ver todas →</a>
+          </div>
+          <div id="lista-movimentacoes"></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel__header">
+            <h2>Estoque baixo</h2>
+            <a href="produtos.html" class="btn btn--ghost btn--sm">Ver produtos →</a>
+          </div>
+          <div id="lista-estoque-baixo"></div>
+        </section>
+      </div>
+    </main>
+  </div>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/utils.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/sidebar.js"></script>
+<script src="js/dashboard.js"></script>
+</body>
+</html>
