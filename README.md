@@ -7,8 +7,7 @@ banco de dados.
 
 ## Como rodar
 
-Requisitos: JDK 17+ e Maven (o NetBeans já traz ambos integrados — basta
-abrir a pasta como projeto Maven existente: *File → Open Project*).
+Requisitos: JDK 17+ e Maven.
 
 ```bash
 mvn spring-boot:run
@@ -130,9 +129,4 @@ da Etapa 6 e o que é extensão desta etapa.
   (BCrypt/Spring Security) fora do escopo já grande desta etapa; a senha
   nunca é devolvida pela API (`@JsonProperty(WRITE_ONLY)` em `Usuario`).
 
-## Documentos de evidência (entrega desta etapa)
 
-- `EVIDENCIAS-TESTES.md` — execução do plano de teste + registro de bugs
-  encontrados e corrigidos (bugtracking).
-- `EVIDENCIAS-VERSIONAMENTO.md` — histórico de commits do repositório
-  Git criado para esta etapa.
